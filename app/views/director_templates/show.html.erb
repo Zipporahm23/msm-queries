@@ -29,7 +29,7 @@
     Dob
   </dt>
   <dd>
-    1963-03-27
+   <%= @the_director.dob %>
   </dd>
 
   <dt>
@@ -72,7 +72,7 @@
 
 </td>
 <td>
-<img src="http://robohash.org/<%= a_film.image %>">
+<img src="<%= a_film.image %>">
 
 </td>
 <td>
@@ -89,7 +89,7 @@
 
 </td>
 <td>
-<a href="">
+<a href="/directors/<%= a_film.id %>">
 Show Details
 </td>
 <% end %>

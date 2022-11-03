@@ -8,9 +8,6 @@ Go back
 
 &nbsp;|&nbsp;
 
-<a href="/delete_director/<%= @the_director.id %>" class="btn btn-block btn-outline-secondary">
-  Delete director
-  <small>(Building this link is not required. It's an optional stretch goal; but, you have the tools if you want to give it a try.)</small>
 </a>
 
 <hr>
@@ -18,7 +15,7 @@ Go back
     Title
   </dt>
   <dd>
-  <img src= <%= @the_movie.title %>>  
+ <%= @the_movie.title %>
 </dd>
 
  <dt>
@@ -29,69 +26,48 @@ Go back
   </dd>
 
 <dt>
-    Director
+    Description
   </dt>
   <dd>
-    <%= @the_movie.director %>
+    <%= @the_movie.description %>
+  </dd>
+
+<dt>
+    Duration
+  </dt>
+  <dd>
+    <%= @the_movie.duration %>
   </dd>
 
 
 
+<dt>
+    Image
+  </dt>
+  <dd>
+  <img src= <%= @the_movie.image %>>  
+</dd>
 
 
+<dt>
+    Director
+  </dt>
+  <dd>
+    <%= @the_movie.director.name %>
+  </dd>
 
 
+ <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@the_movie.created_at) %>
+  </dd>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2>Filmography</h2>
-<table border= "1">
-<% @filmography.each do |a_film| %>
-
-</td>
-</tr>
-<td>
-<%= a_film.id %>
-
-</td>
-<td>
-<img src="http://robohash.org/<%= a_film.image %>">
-
-</td>
-<td>
-<%= a_movie.title %>
-
-</td>
-<td>
-<%= a_movie.year %>
-
-</td>
-<td>
-<% d = Movie.where({ :id => a_film.movie_id }).at(0) %>
-<%= d.name %>
-
-</td>
-<td>
-<a href="">
-Show Details
-</td>
-<% end %>
-</table>
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+   <%= time_ago_in_words(@the_movie.updated_at) %> ago
+  </dd>
+</dl>
